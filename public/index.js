@@ -9,11 +9,14 @@ async function getApiFromServer(){
 
     for(let j = 0; j < 10; j++){
         const div = document.createElement('div');
+
         document.getElementById('response').appendChild(div).id = 'div' + j;
         console.log(div);
 
-        document.getElementById('div' + j).innerHTML = `<h2>${json.businesses[j].name}</h2>`;
+        document.getElementById('div' + j).innerHTML = `<h2>${json.businesses[j].name}</h2><br><a href="${json.businesses[j].url}" target:"_blank">Visit website</a>`;
+
         document.getElementById('div' + j).style.backgroundImage = `url(${json.businesses[j].image_url})`;
+
 
     }
 

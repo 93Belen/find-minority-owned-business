@@ -1,0 +1,18 @@
+body{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+
+div div {
+    border: black solid 1px;
+    background-size: 200px;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    color: white;
+}
+a{
+    color: red;
+}
