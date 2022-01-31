@@ -1,14 +1,18 @@
-
+// GET HTML FEED WITH API INFO
 async function getApiFromServer(){
+
+    // Need to get it from form
     const feedNum = 20;
     const city = 'KansasCity';
     const term = 'coffee';
+
+    // gets API
     const response = await fetch(`api/${city}/${term}`);
     const json = await response.json();
     console.log(json);
 
 
-    // Creates the divs for the feed
+    // Creates the divs and elements for the feed
 
     for(let j = 0; j < feedNum; j++){
         const div = document.createElement('div');
@@ -19,6 +23,9 @@ async function getApiFromServer(){
         const p3 = document.createElement('p');
         const img = document.createElement('img');
         const a = document.createElement('a');
+
+
+        // creates ids and classes for elements in feed
 
         document.getElementById('response').appendChild(div).id = 'div' + j;
         console.log(div);
@@ -35,7 +42,7 @@ async function getApiFromServer(){
         document.getElementById('div' + j).appendChild(a).id = 'a' + j;
 
 
-        // get the titles from json response
+        // get the titles info from json response
 
         function getTitles() {
             const p = [];
@@ -45,7 +52,8 @@ async function getApiFromServer(){
         return p.join(' ~ ');
         }
 
-        // creates the inner structure of the feed **need to change the innerHtml**
+        // organices json info into feed sections
+        
         document.getElementById('h2' + j).textContent = json.businesses[j].name;
         document.getElementById('categories' + j).textContent = getTitles();
         document.getElementById('address' + j).textContent = 'Address: ' + json.businesses[j].location.address1 + ', ' + json.businesses[j].location.city + ', ZipCode : ' + json.businesses[j].location.zip_code;
