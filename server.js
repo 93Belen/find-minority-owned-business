@@ -14,14 +14,17 @@ app.get('/', (req, res) => {
 app.listen(3000, () => console.log('Listening at 3000'));
 
 
-app.get('/api', async(req, res) => {
-    const fetchApi = await fetch('https://api.yelp.com/v3/businesses/search?location=Kansas', {
+app.get('/api/:city/:term', async (req, res) => {
+    const city = req.params.city;
+    const term = req.params.term;
+    const fetchApi = await fetch(`https://api.yelp.com/v3/businesses/search?location=${city}&term=women-owned+${term}&radius=9000&sort_by=rating`, {
          method: 'GET',
          headers: {
-              Authorization : 'aqui va api key'
+              Authorization : ''
          }
     });
     const apiResponse = await fetchApi.json();
-    res.json(apiResponse); 
+    console.log(apiResponse);
+    res.json(apiResponse);
 })
 
