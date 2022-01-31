@@ -3,7 +3,7 @@ async function getApiFromServer(){
 
     // Need to get it from form
     const city = 'OverlandPark';
-    const term = 'takeout';
+    const term = 'food';
 
     // gets API
     const response = await fetch(`api/${city}/${term}`);
