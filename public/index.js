@@ -2,9 +2,8 @@
 async function getApiFromServer(){
 
     // Need to get it from form
-    const feedNum = 20;
-    const city = 'KansasCity';
-    const term = 'coffee';
+    const city = 'OverlandPark';
+    const term = 'takeout';
 
     // gets API
     const response = await fetch(`api/${city}/${term}`);
@@ -14,7 +13,7 @@ async function getApiFromServer(){
 
     // Creates the divs and elements for the feed
 
-    for(let j = 0; j < feedNum; j++){
+    for(let j = 0; j < json.businesses.length; j++){
         const div = document.createElement('div');
         const h2 = document.createElement('h2');
         const h3 = document.createElement('h3');
@@ -40,7 +39,7 @@ async function getApiFromServer(){
         document.getElementById('div' + j).appendChild(p3).id = 'review-count' + j;
         document.getElementById('review-count' + j).className = 'review-count';
         document.getElementById('div' + j).appendChild(a).id = 'a' + j;
-
+        document.getElementById('a' + j).target = '_blank';
 
         // get the titles info from json response
 
@@ -52,11 +51,12 @@ async function getApiFromServer(){
         return p.join(' ~ ');
         }
 
+
         // organices json info into feed sections
-        
+
         document.getElementById('h2' + j).textContent = json.businesses[j].name;
         document.getElementById('categories' + j).textContent = getTitles();
-        document.getElementById('address' + j).textContent = 'Address: ' + json.businesses[j].location.address1 + ', ' + json.businesses[j].location.city + ', ZipCode : ' + json.businesses[j].location.zip_code;
+        document.getElementById('address' + j).textContent = 'Address: ' + json.businesses[j].location.address1 + ', ZipCode : ' + json.businesses[j].location.zip_code;
         document.getElementById('img' + j).src = json.businesses[j].image_url;
         document.getElementById('rating' + j).textContent = `Rating: ${json.businesses[j].rating}`;
         document.getElementById('review-count' + j).textContent = `Reviews: ${json.businesses[j].review_count}`;
@@ -73,8 +73,6 @@ async function getApiFromServer(){
 }
 
 getApiFromServer();
-
-
 
 
 
