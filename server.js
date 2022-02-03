@@ -1,5 +1,7 @@
 import express from 'express';
 import fetch from 'node-fetch';
+import 'dotenv/config';
+
 
 const app = express();
 
@@ -10,17 +12,19 @@ app.get('/', (req, res) => {
     res.sendFile('public')
 });
 
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening at ${port}`));
 
-app.listen(3000, () => console.log('Listening at 3000'));
 
-
-app.get('/api/:city/:term', async (req, res) => {
+app.get('/api/:city/:term/:owner', async (req, res) => {
     const city = req.params.city;
     const term = req.params.term;
-    const fetchApi = await fetch(`https://api.yelp.com/v3/businesses/search?location=${city}&term=women-owned+${term}&radius=9000&sort_by=rating`, {
+    const owner = req.params.owner;
+    const api_key = process.env.API_KEY;
+    const fetchApi = await fetch(`https://api.yelp.com/v3/businesses/search?location=${city}&term=${owner}+${term}&radius=9000&sort_by=rating`, {
          method: 'GET',
          headers: {
-              Authorization : ''
+              Authorization : api_key
          }
     });
     const apiResponse = await fetchApi.json();
