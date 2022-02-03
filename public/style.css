@@ -9,9 +9,49 @@ body{
     align-content: center;
     font-family: 'Open Sans Condensed';
     font-size: 5vw;
-    background-color: hsl(41, 95%, 90%);
+    background-color: hsl(41deg, 95%, 92%);
     width: 90vw;
+    background-size: 100vw 100vh;
 }
+svg{
+    height: 25vw;
+    width: 25vw;
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    animation: spin 30s linear infinite;
+}
+#svg-small{
+    height: 17vw;
+    width: 17vw;
+    position: absolute;
+    top: 5.8vw;
+    right: 5.9vw;
+    animation: spin-back 30s linear infinite;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin-back {
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+
+
+h1{
+    font-family: 'Bungee Shade';
+    font-size: 8vw;
+    color: hsl(281, 50%, 35%);
+    text-align: center;
+    margin-bottom: 5vw;
+    margin-top: 10vw;
+}
+
+
 
 
 div div {
@@ -26,8 +66,8 @@ div div {
     align-items: center;
     justify-content: center;
     justify-items: center;
-    padding: 2vw;
-    background-color: hsla(41, 85%, 93%);
+    padding: 3vw;
+    background: linear-gradient(to top left, hsl(41deg, 95%, 93%), hsl(41deg, 95%, 95%), hsl(41deg, 95%, 98%), hsl(41deg, 95%, 99%));
 }
 a{
     color: hsl(342, 65%, 50%);
@@ -41,6 +81,7 @@ h2 {
     font-family: 'Bungee Shade';
     font-size: 6vw;
     color: hsl(281, 50%, 35%);
+    text-align: center;
 }
 h3{
     grid-column: 1 / 4;
@@ -75,28 +116,146 @@ img{
     font-size: 5vw;
     padding: 6vw;
 }
+
+#response{
+    margin-top: 60vw;
+}
+
+
 #form{
    display: grid;
-   grid-template-columns: repeat(2, 50%);
+   grid-template-columns: 70% 30%;
    grid-template-rows: repeat(4, 50%);
    width: 50vw;
-   margin: 10vw;
+   margin: 3vw;
 }
 input{
-    height: 5vw;
-    width: 28vw;
-    font-size: 4vw;
+    height: 10vw;
+    width: 50vw;
+    font-size: 7vw;
+    align-self: center;
+    justify-self: flex-start;
+    border-radius: 1vw;
 }
+
+select{
+    height: 15vw;
+    width: 50vw;
+    font-size: 30vw;
+    align-self: center;
+}
+option{
+    font-family: 'Open Sans Condensed';
+    font-size: 30vw;
+}
+
+
+
+
 label{
     font-family: 'Open Sans Condensed';
-    font-size: 4vw;
+    font-size: 7vw;
+    align-self: center;
 }
 #submit{
-    height: 6vw;
-    width: 20vw;
+    height: 15vw;
+    width: 45vw;
     font-family: 'Bebas Neue';
     background-color: hsl(342, 65%, 50%);
     color: white;
-    font-size: 4vw;
+    font-size: 10vw;
     border-radius: 2vw;
+    text-align: center;
+    margin: 5vw;
+}
+
+
+@media screen and (min-width: 500px){
+    
+    body{
+        font-size: 3vw;
+
+    }
+    h1{
+        font-size: 3vw;
+    }
+    
+    
+    form{
+        width: 40vw;
+        height: 20vh;
+    }
+    select{
+        width: 20vw;
+    }
+    input{
+        width: 20vw;
+        height: 3vw;
+        font-size: 2vw;
+    }
+    label{
+        font-size: 3vw;
+    }
+    #owner{
+        height: 30vw;
+    }
+    #submit{
+        height: 7vh;
+        width: 20vw;
+        font-size: 3vw;
+    }
+
+    #response{
+        display: grid;
+        grid-template-columns: repeat(3, 25%);
+        row-gap: 1vw;
+        column-gap: 10vw;
+        margin-top: 30vw;
+    }
+    div div{
+        width: 30vw;
+        height: 20vw;
+        box-sizing: border-box;
+        margin-top: 0;
+        padding: 1vw;
+        border-radius: 0.5vw;
+    }
+    img{
+        height: 6vw;
+        border-radius: 0.5vw;
+    }
+    h2{
+        font-size: 2vw;
+    }
+    h3{
+        margin-top: 2vw;
+        font-size: 1vw;
+    }
+    .address{
+        font-size: 1.5vw;
+        width: 15vw;
+    }
+    .review-count{
+        font-size: 1.5vw;
+    }
+    .rating{
+        font-size: 1.5vw;
+    }
+    a{
+        font-size: 1.5vw;
+    }
+    
+svg{
+    height: 20vw;
+    width: 20vw;
+    top: 3.5vw;
+    right: 3.5vw;
+}
+#svg-small{
+    height: 15vw;
+    width: 15vw;
+    top: 6vw;
+    right: 6vw;
+}
+    
 }

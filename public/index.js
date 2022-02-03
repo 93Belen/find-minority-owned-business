@@ -4,9 +4,11 @@ async function getApiFromServer(){
     // Need to get it from form
     const city = document.getElementById('city').value;
     const term = document.getElementById('term').value;
+    const owner = document.getElementById('owner').value;
+
 
     // gets API
-    const response = await fetch(`api/${city}/${term}`);
+    const response = await fetch(`api/${city}/${owner}/${term}`);
     const json = await response.json();
     console.log(json);
 
