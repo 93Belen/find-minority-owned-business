@@ -1,6 +1,15 @@
-Women owned businesses app
-==========================
-App that finds women-owned businesses in the searched area
------------------------------------------------------------
+Find businesses owned by minorities
+========================================
 
-It takes info from Yelp API.
+Enter location, type of business and minority that owner belongs too
+
+
+You can choose between:  
+                        + Black owned
+                        + Latinx owned
+                        + Women owned
+
+
+--------------------------------------------------------------------
+
+This web App pulls information from Yelp API.
