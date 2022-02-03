@@ -1,8 +1,6 @@
-WEATHER APP
-===============
+Women owned businesses app
+==========================
+App that finds women-owned businesses in the searched area
+-----------------------------------------------------------
 
-Practicing fetch api with node.js and express server
-
-
-I've got the public folder in the server, so index.js is able to modify index.html
-with document keyword
+It takes info from Yelp API.

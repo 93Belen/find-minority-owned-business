@@ -75,7 +75,7 @@ img{
     font-size: 5vw;
     padding: 6vw;
 }
-form{
+#form{
    display: grid;
    grid-template-columns: repeat(2, 50%);
    grid-template-rows: repeat(4, 50%);
@@ -85,7 +85,6 @@ form{
 input{
     height: 5vw;
     width: 28vw;
-    font-family: 'Bebas Neue';
     font-size: 4vw;
 }
 label{

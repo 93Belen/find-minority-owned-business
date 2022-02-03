@@ -2,8 +2,8 @@
 async function getApiFromServer(){
 
     // Need to get it from form
-    const city = 'OverlandPark';
-    const term = 'food';
+    const city = document.getElementById('city').value;
+    const term = document.getElementById('term').value;
 
     // gets API
     const response = await fetch(`api/${city}/${term}`);
@@ -72,8 +72,23 @@ async function getApiFromServer(){
 
 }
 
-getApiFromServer();
+//getApiFromServer();
+
+//document.getElementById('form').submit();
+//document.getElementById('submit').addEventListener('onsubmit', getApiFromServer);
 
 
 
+// Event Listener
 
+const form = document.getElementById('form');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+
+        getApiFromServer();
+
+        console.log('Form has been submited!');
+        
+    })
