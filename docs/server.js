@@ -5,11 +5,11 @@ import 'dotenv/config';
 
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static('docs'));
 
 
 app.get('/', (req, res) => {
-    res.sendFile('public')
+    res.sendFile('docs')
 });
 
 const port = process.env.PORT || 3000;
@@ -25,7 +25,6 @@ app.get('/api/:city/:term/:owner', async (req, res) => {
          method: 'GET',
          headers: {
               Authorization : API_KEY
-         }
     });
     const apiResponse = await fetchApi.json();
     console.log(apiResponse);
