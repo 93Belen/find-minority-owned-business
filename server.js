@@ -5,11 +5,11 @@ import 'dotenv/config';
 
 const app = express();
 
-app.use(express.static('docs'));
+app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-    res.sendFile('docs')
+    res.sendFile('public')
 });
 
 const port = process.env.PORT || 3000;
@@ -24,7 +24,7 @@ app.get('/api/:city/:term/:owner', async (req, res) => {
     const fetchApi = await fetch(`https://api.yelp.com/v3/businesses/search?location=${city}&term=${owner}+${term}&radius=9000&sort_by=rating`, {
          method: 'GET',
          headers: {
-              Authorization : api_key
+              Authorization : process.env.API_KEY
          }
     });
     const apiResponse = await fetchApi.json();
